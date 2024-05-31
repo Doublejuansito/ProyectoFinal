@@ -63,5 +63,6 @@ public abstract class Producto {
         this.puntos = puntos;
     }
     
+    int i = 0;
     
 }
