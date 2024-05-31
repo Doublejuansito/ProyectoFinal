@@ -17,7 +17,7 @@ public class Usuario {
     private int contraseña;
     private float dinero;
     private String correo;
-    private ArrayList<Producto> productos;
+    private ArrayList<Producto> carrito;
 
     public Scanner getIn() {
         return in;
@@ -67,12 +67,12 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public ArrayList<Producto> getProductos() {
-        return productos;
+    public ArrayList<Producto> getCarrito() {
+        return carrito;
     }
 
-    public void setProductos(ArrayList<Producto> productos) {
-        this.productos = productos;
+    public void setCarrito(ArrayList<Producto> carrito) {
+        this.carrito = carrito;
     }
 
     public Usuario(String nombre, int identificacion, int contraseña, float dinero, String correo) {
@@ -81,7 +81,7 @@ public class Usuario {
         this.contraseña = contraseña;
         this.dinero = dinero;
         this.correo = correo;
-        this.productos = new ArrayList<Producto>();
+        this.carrito = new ArrayList<Producto>();
     }
     
     public static Usuario crear(){
@@ -127,5 +127,12 @@ public class Usuario {
     public String toString() {
         return "Usuario{" + "nombre=" + nombre + ", identificacion=" + identificacion + ", contrase\u00f1a=" + contraseña + ", dinero=" + dinero + ", correo=" + correo + '}';
     }
+    
+    public void agregaralcarrito(){
+        Producto productico = Producto.crearproducto();
+        carrito.add(productico);
+    }
+    
+    
     
 }
