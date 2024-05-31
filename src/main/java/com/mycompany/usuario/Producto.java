@@ -65,4 +65,6 @@ public abstract class Producto {
     
     int hijueputavidaaaaaa = 1;
     
+    int cambio = 0;
+    
 }
