@@ -64,5 +64,6 @@ public abstract class Producto {
     }
     
     int i = 0;
+    int a = 0;
     
 }
