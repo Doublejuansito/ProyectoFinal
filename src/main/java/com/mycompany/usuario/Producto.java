@@ -15,7 +15,10 @@ public abstract class Producto {
     protected String categoria;
     protected int puntos;
     protected String descripcion;
+    
 
+    
+    
     public float getPrecio() {
         return precio;
     }
@@ -62,10 +65,15 @@ public abstract class Producto {
         this.categoria = categoria;
         this.puntos = puntos;
         this.descripcion = descripcion;
+        
     }
 
+    @Override
+    public String toString() {
+        return "Producto{" + "precio=" + precio + ", nombre=" + nombre + ", categoria=" + categoria + ", puntos=" + puntos + ", descripcion=" + descripcion + '}';
+    }
 
-
+    
     
     public static Producto crearproducto(){
         Producto productico;
@@ -80,13 +88,26 @@ public abstract class Producto {
         System.out.println("Ingrese la descripcion del articulo:");
         String de = in.nextLine();
         if(ca=="ropa"){
+            if (Ropa.getDescuento()!=0){
+                pr = pr*(1-((float)Ropa.getDescuento()/100));
+            }
             productico = new Ropa(pr,no,ca,pu,de);
+            
         }else if(ca=="jueguetes"){
+            if (Juguetes.getDescuento()!=0){
+                pr = pr*(1-((float)Juguetes.getDescuento()/100));
+            }
             productico = new Juguetes(pr,no,ca,pu,de);
         }else if(ca=="limpieza"){
+            if (Limpieza.getDescuento()!=0){
+                pr = pr*(1-((float)Limpieza.getDescuento()/100));
+            }
             productico = new Limpieza(pr,no,ca,pu,de);
         }else{
-            productico = new Ropa(pr,no,ca,pu,de);
+            if (Alimentos.getDescuento()!=0){
+                pr = pr*(1-((float)Alimentos.getDescuento()/100));
+            }
+            productico = new Alimentos(pr,no,ca,pu,de);
         }
         
         return productico;

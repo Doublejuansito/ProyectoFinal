@@ -9,12 +9,24 @@ package com.mycompany.usuario;
  * @author ospin
  */
 public class Juguetes extends Producto{
-
+    
     public Juguetes(float precio, String nombre, String categoria, int puntos, String descripcion) {
+
         super(precio, nombre, categoria, puntos, descripcion);
     }
+    private static int descuento = 0;
+    
+    public static void aplicardescuento(int desc){
+        descuento = desc;
+    }
 
+    public static int getDescuento() {
+        return descuento;
+    }
 
+    
+
+    
     
     
 }

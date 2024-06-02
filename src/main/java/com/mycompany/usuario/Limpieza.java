@@ -13,8 +13,15 @@ public class Limpieza extends Producto{
     public Limpieza(float precio, String nombre, String categoria, int puntos, String descripcion) {
         super(precio, nombre, categoria, puntos, descripcion);
     }
+    private static int descuento = 0;
     
+    public static void aplicardescuento(int desc){
+        descuento = desc;
+    }
 
+    public static int getDescuento() {
+        return descuento;
+    }    
     
 
     

@@ -18,6 +18,19 @@ public class Usuario {
     private float dinero;
     private String correo;
     private ArrayList<Producto> carrito;
+    private int puntos;
+
+    public Usuario(String nombre, int identificacion, int contraseña, float dinero, String correo) {
+        this.nombre = nombre;
+        this.identificacion = identificacion;
+        this.contraseña = contraseña;
+        this.dinero = dinero;
+        this.correo = correo;
+        carrito = new ArrayList<Producto>();
+        puntos = 0;                
+    }
+
+    
 
     public Scanner getIn() {
         return in;
@@ -75,15 +88,16 @@ public class Usuario {
         this.carrito = carrito;
     }
 
-    public Usuario(String nombre, int identificacion, int contraseña, float dinero, String correo) {
-        this.nombre = nombre;
-        this.identificacion = identificacion;
-        this.contraseña = contraseña;
-        this.dinero = dinero;
-        this.correo = correo;
-        this.carrito = new ArrayList<Producto>();
+    public int getPuntos() {
+        return puntos;
     }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+
     
+   
     public static Usuario crear(){
         Scanner in = new Scanner(System.in);
         String n,co;
@@ -128,9 +142,28 @@ public class Usuario {
         return "Usuario{" + "nombre=" + nombre + ", identificacion=" + identificacion + ", contrase\u00f1a=" + contraseña + ", dinero=" + dinero + ", correo=" + correo + '}';
     }
     
-    public void agregaralcarrito(){
-        Producto productico = Producto.crearproducto();
-        carrito.add(productico);
+    public void agregaralcarrito(String nombre){
+        for(Producto productito:Main.productos){
+           if(productito.getNombre()==nombre){
+               
+               carrito.add(productito);
+           } 
+        }
+    }
+    public void eliminardelcarrito(String nombre){
+        for(Producto productito:Main.productos){
+           if(productito.getNombre()==nombre){
+               carrito.remove(productito);
+           } 
+        }
+    }
+    public void comprar(){
+        float plata = 0;
+        for(Producto productazo:carrito){
+            plata += productazo.getPrecio();
+        }
+        dinero -= plata;
+        carrito.clear();
     }
     
     
