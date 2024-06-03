@@ -13,6 +13,7 @@ import java.util.Random;
 public class Main {
     public static Random rand = new Random();
     public static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    public static ArrayList<Bono> bonos = new ArrayList<Bono>();
     public static ArrayList<Producto> productos = new ArrayList<Producto>();
     static Scanner in = new Scanner(System.in);
     public static void crearusuario(){
@@ -23,6 +24,10 @@ public class Main {
     public static void agregarproducto(){
         Producto nuevoproducto = Producto.crearproducto();        
         productos.add(nuevoproducto);
+    }
+    public static void agregarbono(Bono bono, Usuario usuarito){
+        usuarito.setPuntos(usuarito.getPuntos()-bono.getPuntos());   
+        bonos.add(bono);
     }
     public static void promocion(){
         int num = rand.nextInt(4);

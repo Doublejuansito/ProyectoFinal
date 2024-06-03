@@ -19,7 +19,7 @@ public class Usuario {
     private String correo;
     private ArrayList<Producto> carrito;
     private int puntos;
-
+   
     public Usuario(String nombre, int identificacion, int contraseña, float dinero, String correo) {
         this.nombre = nombre;
         this.identificacion = identificacion;
@@ -27,11 +27,12 @@ public class Usuario {
         this.dinero = dinero;
         this.correo = correo;
         carrito = new ArrayList<Producto>();
-        puntos = 0;                
+        puntos = 0;    
+        
     }
 
     
-
+    
     public Scanner getIn() {
         return in;
     }
@@ -159,10 +160,13 @@ public class Usuario {
     }
     public void comprar(){
         float plata = 0;
+        int puntacos = 0;
         for(Producto productazo:carrito){
             plata += productazo.getPrecio();
+            puntacos += productazo.getPuntos();
         }
         dinero -= plata;
+        puntos += puntacos;
         carrito.clear();
     }
     
