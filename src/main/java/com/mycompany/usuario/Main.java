@@ -58,25 +58,41 @@ public class Main {
             }
         
     }}
+    public static void ingresarUsuario(){ //Ingresar a la ventana de ingresar usuario
+        VentanaIngresoUsuario ventana2= new VentanaIngresoUsuario();
+        ventana2.setVisible(true);
+        
+    }
+    public static void usuariosPredeterminados(){//Establecer ususarios predetterminados
+        Usuario usuario1 = new Usuario("Juan",10,11,2,"sh");
+        Usuario usuario2 = new Usuario("sara",11,12,2,"sdh");
+        usuarios.add(usuario1);
+        usuarios.add(usuario2);
+        
+    }
 
     public static void main(String[] args) { 
-        System.out.println(4.0/100);
-        Juguetes juguete = new Juguetes(10,"","",4,"");
-        Ropa ropa = new Ropa(10,"","",4,"");
-        
-        Juguetes juguete2 = new Juguetes(10,"","",4,"");
-        System.out.println(juguete.getDescuento());
-        System.out.println(ropa.getDescuento());
-        System.out.println(juguete2.getDescuento());
-        crearusuario();
-        crearusuario();
-        crearusuario();
-        eliminarusuario();
-        for(Usuario usuario : usuarios){
-            System.out.println(usuario.toString());
+//        System.out.println(4.0/100);
+//        Juguetes juguete = new Juguetes(10,"","",4,"");
+//        Ropa ropa = new Ropa(10,"","",4,"");
+//        
+//        Juguetes juguete2 = new Juguetes(10,"","",4,"");
+//        System.out.println(juguete.getDescuento());
+//        System.out.println(ropa.getDescuento());
+//        System.out.println(juguete2.getDescuento());
+//        crearusuario();
+//        crearusuario();
+//        crearusuario();
+//        eliminarusuario();
+//        for(Usuario usuario : usuarios){
+//            System.out.println(usuario.toString());
+            usuariosPredeterminados();
+            ingresarUsuario();
+            
+
             
         }
         
     }
     
-}
+

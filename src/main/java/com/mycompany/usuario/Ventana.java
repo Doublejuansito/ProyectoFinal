@@ -26,6 +26,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class Ventana extends JFrame {
      private JPanel panel;
@@ -112,7 +113,7 @@ public class Ventana extends JFrame {
         etiquetaD.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaD.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
         etiquetaD.setForeground(Color.WHITE);//Asignar color al texto
-        etiquetaD.setText("Dinero : $34.000");//Asignar String
+        etiquetaD.setText("Dinero : "+(Main.usuarios.get(VentanaIngresoUsuario.indice)).getDinero());//Asignar String
         etiquetaD.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
         etiquetaD.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
         panel.add(etiquetaD);
@@ -121,7 +122,7 @@ public class Ventana extends JFrame {
         etiquetaD.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaD.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
         etiquetaD.setForeground(Color.WHITE);//Asignar color al texto
-        etiquetaD.setText("Puntos : 34");//Asignar String
+        etiquetaD.setText("Puntos : "+(Main.usuarios.get(VentanaIngresoUsuario.indice)).getPuntos());//Asignar String
         etiquetaD.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
         etiquetaD.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
         panel.add(etiquetaD);
@@ -145,7 +146,7 @@ public class Ventana extends JFrame {
         //Boton de texto
        
       //Agregar el boton al panel 1
-        boton1 = new JButton("Usuario");//Nuevo Boton con texto
+        boton1 = new JButton(Main.usuarios.get(VentanaIngresoUsuario.indice).getNombre());//Nuevo Boton con texto
         boton1.setForeground(Color.white);//Color del texto
         boton1.setOpaque(true);
         boton1.setBackground(Color.decode("#f1d072"));
@@ -459,5 +460,8 @@ public class Ventana extends JFrame {
 }
 
         
+
+
+
 
 

@@ -26,6 +26,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 
 public class VentanaIngresoUsuario extends JFrame {
@@ -56,6 +57,7 @@ public class VentanaIngresoUsuario extends JFrame {
      private JButton botonP4;
      private JButton botonP5;
      private JButton botonP6;
+     static public int indice=0;
     
     public VentanaIngresoUsuario(){
         ImageIcon icon = new ImageIcon("CarritoPrincipal.png");//Imagen de icono
@@ -73,6 +75,7 @@ public class VentanaIngresoUsuario extends JFrame {
         iniciaretiquetas();
         cajasdetexto();
         boton();
+        accionboton();
        
         
     }
@@ -154,7 +157,46 @@ public class VentanaIngresoUsuario extends JFrame {
         boton1.setBounds(95,200,150,40);//dimensiones del boton y posicion
         etiquetaF.add(boton1);//Agregar el boton al panel 
      }
-    
-      }
-    
+     private void accionboton(){
+         ActionListener oyenteDeAccion = new ActionListener() { // se crea el evento oyente de accion (utilizado para clicks y cosas simples)
+             boolean usuarioe=false;
+             
+            @Override
+            public void actionPerformed(ActionEvent e) {//a 
+                for(Usuario usuarito1 : Main.usuarios){
+                  
+                    if (usuarito1.getNombre().equals(cajaU.getText())){
+                        usuarioe=true;
+                        indice=Main.usuarios.indexOf(usuarito1);
+                        break;
+                    }
+            }
+                if (usuarioe){
+         
+                    usuarioe=false;
+                    if(Main.usuarios.get(indice).getContraseña()==(Integer.parseInt(cajaC.getText()))){
+                        dispose();
+                        Ventana ventana = new Ventana();
+                        ventana.setVisible(true);
+                        
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                        cajaC.setText("");
+                        
 
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Usuario y/0 Contraseña Incorrectos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                    cajaC.setText("");
+                    cajaU.setText("");
+                }
+            }
+        }; //Oyente de accion
+        boton1.addActionListener(oyenteDeAccion);// se agregael oyente de accion para que pase cada ves que oprima el boton
+           
+       }
+         
+     }
+    
