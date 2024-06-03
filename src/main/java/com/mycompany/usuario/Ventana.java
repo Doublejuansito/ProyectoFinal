@@ -1,5 +1,6 @@
 
 package com.mycompany.usuario;
+import static com.mycompany.usuario.VentanaIngresoUsuario.indice;
 import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -35,17 +36,41 @@ public class Ventana extends JFrame {
      private JLabel etiqueta1;
      private JLabel etiqueta2;
      private JLabel etiquetaP1;
+     private JLabel etiquetaP1t;
+     private JLabel etiquetaP1t2;
      private JLabel etiquetaP2;
+     private JLabel etiquetaP2t;
+     private JLabel etiquetaP2t2;
      private JLabel etiquetaP3;
+     private JLabel etiquetaP3t;
+     private JLabel etiquetaP3t2;
      private JLabel etiquetaP4;
+     private JLabel etiquetaP4t;
+     private JLabel etiquetaP4t2;
      private JLabel etiquetaP5;
+     private JLabel etiquetaP5t;
+     private JLabel etiquetaP5t2;
      private JLabel etiquetaP6;
+     private JLabel etiquetaP6t;
+     private JLabel etiquetaP6t2;
      private JLabel etiquetaPa1;
      private JLabel etiquetaPa2;
      private JLabel etiquetaPa3;
      private JLabel etiquetaPa4;
      private JLabel etiquetaPa5;
      private JLabel etiquetaPa6;
+     private ImageIcon imagen1_1;
+     private ImageIcon imagen1_2;
+     private ImageIcon imagen1_3;
+     private ImageIcon imagen1_4;
+     private ImageIcon imagen1_5;
+     private ImageIcon imagen1_6;
+     private JLabel imagen1;
+     private JLabel imagen2;
+     private JLabel imagen3;
+     private JLabel imagen4;
+     private JLabel imagen5;
+     private JLabel imagen6;
      private JButton boton2;
      private JButton boton1;
      private JButton botonP1;
@@ -105,11 +130,12 @@ public class Ventana extends JFrame {
         etiqueta2 = new JLabel ();// Crear nueva etiqueta 
         etiqueta2.setBounds(0, 0, 380, 130);// dimensionar la etiqueta
         etiqueta2.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(380, 130,Image.SCALE_AREA_AVERAGING)));
+        
         panel.add(etiqueta2);
         //Etiqueta de Dinero y puntos
         
         etiquetaD = new JLabel();//Crear etiqueta con string
-        etiquetaD.setBounds(830, 33, 150, 35);// posicion en el panel y tamaño de la etiqueta
+        etiquetaD.setBounds(840, 33, 150, 35);// posicion en el panel y tamaño de la etiqueta
         etiquetaD.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaD.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
         etiquetaD.setForeground(Color.WHITE);//Asignar color al texto
@@ -118,7 +144,7 @@ public class Ventana extends JFrame {
         etiquetaD.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
         panel.add(etiquetaD);
         etiquetaD = new JLabel();//Crear etiqueta con string
-        etiquetaD.setBounds(830, 63, 150, 35);// posicion en el panel y tamaño de la etiqueta
+        etiquetaD.setBounds(840, 63, 150, 35);// posicion en el panel y tamaño de la etiqueta
         etiquetaD.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaD.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
         etiquetaD.setForeground(Color.WHITE);//Asignar color al texto
@@ -146,12 +172,28 @@ public class Ventana extends JFrame {
         //Boton de texto
        
       //Agregar el boton al panel 1
+      //Boton usuario
         boton1 = new JButton(Main.usuarios.get(VentanaIngresoUsuario.indice).getNombre());//Nuevo Boton con texto
         boton1.setForeground(Color.white);//Color del texto
         boton1.setOpaque(true);
         boton1.setBackground(Color.decode("#f1d072"));
         boton1.setFont(new Font("arial",Font.ROMAN_BASELINE,20));//Fuente
         boton1.setBounds(400,33,200,70);//dimensiones del boton y posicio
+        
+        //Evento Boton datos Usuario
+        
+        ActionListener oyenteDeAccionusuario = new ActionListener() { // se crea el evento oyente de accion (utilizado para clicks y cosas simples)
+            @Override
+            public void actionPerformed(ActionEvent e) {//a 
+//                
+                  VentanaDatosUsuario ventana = new VentanaDatosUsuario();//crear la ventana datos usuario
+                  ventana.setVisible(true); 
+            }
+        }; //Oyente de accion
+        boton1.addActionListener(oyenteDeAccionusuario);// se agregael oyente de accion para que pase cada ves que oprima el boton
+        
+        
+        
         //Boton Redimir Puntos
         boton2 = new JButton("Redimir");//Nuevo Boton con texto
         boton2.setForeground(Color.white);//Color del texto
@@ -171,60 +213,120 @@ public class Ventana extends JFrame {
         etiquetaP1.setBounds(100, 50, 200, 250);// posicion en el panel y tamaño de la etiqueta
         etiquetaP1.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaP1.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
-        etiquetaP1.setForeground(Color.WHITE);//Asignar color al texto
-        etiquetaP1.setText("Dinero : $34.000");//Asignar String
-        etiquetaP1.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
-        etiquetaP1.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaP1t = new JLabel();
+        etiquetaP1t.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
+        etiquetaP1t.setBackground(Color.decode("#f1d072"));// Color de la etiqueta 
+        etiquetaP1t.setBounds(10, 10, 180,30);
+        etiquetaP1t.setForeground(Color.WHITE);//Asignar color al texto
+        etiquetaP1t.setText(Main.productos.get(Main.indices.get(0)).getNombre());//Asignar String
+        etiquetaP1t.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
+        etiquetaP1t.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaP1.add(etiquetaP1t);
+        imagen1 = new JLabel();
+        imagen1.setBounds(10,50,180,190);
+        imagen1_1=(Main.productos.get(Main.indices.get(0)).getImagen());//Imagen Obtenida de la lista aleatoria
+        imagen1.setIcon(new ImageIcon(imagen1_1.getImage().getScaledInstance(180, 190,Image.SCALE_AREA_AVERAGING)));//Setea la imagen del producto1 de la lista aleatoria 
+        etiquetaP1.add(imagen1);
         etiquetaF.add(etiquetaP1);
         
         etiquetaP2 = new JLabel();//Crear etiqueta con string
         etiquetaP2.setBounds(400, 50, 200, 250);// posicion en el panel y tamaño de la etiqueta
         etiquetaP2.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
-        etiquetaP2.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
-        etiquetaP2.setForeground(Color.WHITE);//Asignar color al texto
-        etiquetaP2.setText("Dinero : $34.000");//Asignar String
-        etiquetaP2.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
-        etiquetaP2.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaP2.setBackground(Color.decode("#175CA7"));// Color de la etiqueta etiquetaP1t = new JLabel();
+        etiquetaP2t = new JLabel();
+        etiquetaP2t.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
+        etiquetaP2t.setBackground(Color.decode("#f1d072"));// Color de la etiqueta 
+        etiquetaP2t.setBounds(10, 10, 180,30);
+        etiquetaP2t.setForeground(Color.WHITE);//Asignar color al texto
+        etiquetaP2t.setText(Main.productos.get(Main.indices.get(1)).getNombre());//Asignar String
+        etiquetaP2t.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
+        etiquetaP2t.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaP2.add(etiquetaP2t);
+        imagen2 = new JLabel();
+        imagen2.setBounds(10,50,180,190);
+        imagen1_2=(Main.productos.get(Main.indices.get(1)).getImagen());//Imagen Obtenida de la lista aleatoria
+        imagen2.setIcon(new ImageIcon(imagen1_2.getImage().getScaledInstance(180, 190,Image.SCALE_AREA_AVERAGING)));//Setea la imagen del producto1 de la lista aleatoria 
+        etiquetaP2.add(imagen2);
         etiquetaF.add(etiquetaP2);
         
         etiquetaP3 = new JLabel();//Crear etiqueta con string
         etiquetaP3.setBounds(700, 50, 200, 250);// posicion en el panel y tamaño de la etiqueta
         etiquetaP3.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaP3.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
-        etiquetaP3.setForeground(Color.WHITE);//Asignar color al texto
-        etiquetaP3.setText("Dinero : $34.000");//Asignar String
-        etiquetaP3.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
-        etiquetaP3.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaP3t = new JLabel();
+        etiquetaP3t.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
+        etiquetaP3t.setBackground(Color.decode("#f1d072"));// Color de la etiqueta 
+        etiquetaP3t.setBounds(10, 10, 180,30);
+        etiquetaP3t.setForeground(Color.WHITE);//Asignar color al texto
+        etiquetaP3t.setText(Main.productos.get(Main.indices.get(2)).getNombre());//Asignar String
+        etiquetaP3t.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
+        etiquetaP3t.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaP3.add(etiquetaP3t);
+        imagen3 = new JLabel();
+        imagen3.setBounds(10,50,180,190);
+        imagen1_3=(Main.productos.get(Main.indices.get(2)).getImagen());//Imagen Obtenida de la lista aleatoria
+        imagen3.setIcon(new ImageIcon(imagen1_3.getImage().getScaledInstance(180, 190,Image.SCALE_AREA_AVERAGING)));//Setea la imagen del producto1 de la lista aleatoria 
+        etiquetaP3.add(imagen3);
         etiquetaF.add(etiquetaP3);
         
         etiquetaP4 = new JLabel();//Crear etiqueta con string
         etiquetaP4.setBounds(100, 335, 200, 250);// posicion en el panel y tamaño de la etiqueta
         etiquetaP4.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaP4.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
-        etiquetaP4.setForeground(Color.WHITE);//Asignar color al texto
-        etiquetaP4.setText("Dinero : $34.000");//Asignar String
-        etiquetaP4.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
-        etiquetaP4.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaP4t = new JLabel();
+        etiquetaP4t.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
+        etiquetaP4t.setBackground(Color.decode("#f1d072"));// Color de la etiqueta 
+        etiquetaP4t.setBounds(10, 10, 180,30);
+        etiquetaP4t.setForeground(Color.WHITE);//Asignar color al texto
+        etiquetaP4t.setText(Main.productos.get(Main.indices.get(3)).getNombre());//Asignar String
+        etiquetaP4t.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
+        etiquetaP4t.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaP4.add(etiquetaP4t);
+        imagen4 = new JLabel();
+        imagen4.setBounds(10,50,180,190);
+        imagen1_4=(Main.productos.get(Main.indices.get(3)).getImagen());//Imagen Obtenida de la lista aleatoria
+        imagen4.setIcon(new ImageIcon(imagen1_4.getImage().getScaledInstance(180, 190,Image.SCALE_AREA_AVERAGING)));//Setea la imagen del producto1 de la lista aleatoria  
+        etiquetaP4.add(imagen4);
         etiquetaF.add(etiquetaP4);
         
         etiquetaP5 = new JLabel();//Crear etiqueta con string
         etiquetaP5.setBounds(400, 335, 200, 250);// posicion en el panel y tamaño de la etiqueta
         etiquetaP5.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaP5.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
-        etiquetaP5.setForeground(Color.WHITE);//Asignar color al texto
-        etiquetaP5.setText("Dinero : $34.000");//Asignar String
-        etiquetaP5.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
-        etiquetaP5.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaP5t = new JLabel();
+        etiquetaP5t.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
+        etiquetaP5t.setBackground(Color.decode("#f1d072"));// Color de la etiqueta 
+        etiquetaP5t.setBounds(10, 10, 180,30);
+        etiquetaP5t.setForeground(Color.WHITE);//Asignar color al texto
+        etiquetaP5t.setText(Main.productos.get(Main.indices.get(4)).getNombre());//Asignar String
+        etiquetaP5t.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
+        etiquetaP5t.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaP5.add(etiquetaP5t);
+        imagen5 = new JLabel();
+        imagen5.setBounds(10,50,180,190);
+        imagen1_5=(Main.productos.get(Main.indices.get(4)).getImagen());//Imagen Obtenida de la lista aleatoria
+        imagen5.setIcon(new ImageIcon(imagen1_5.getImage().getScaledInstance(180, 190,Image.SCALE_AREA_AVERAGING)));//Setea la imagen del producto1 de la lista aleatoria 
+        etiquetaP5.add(imagen5);
         etiquetaF.add(etiquetaP5);
         
         etiquetaP6 = new JLabel();//Crear etiqueta con string
         etiquetaP6.setBounds(700, 335, 200, 250);// posicion en el panel y tamaño de la etiqueta
         etiquetaP6.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaP6.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
-        etiquetaP6.setForeground(Color.WHITE);//Asignar color al texto
-        etiquetaP6.setText("Dinero : $34.000");//Asignar String
-        etiquetaP6.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
-        etiquetaP6.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaP6t = new JLabel();
+        etiquetaP6t.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
+        etiquetaP6t.setBackground(Color.decode("#f1d072"));// Color de la etiqueta 
+        etiquetaP6t.setBounds(10, 10, 180,30);
+        etiquetaP6t.setForeground(Color.WHITE);//Asignar color al texto
+        etiquetaP6t.setText(Main.productos.get(Main.indices.get(5)).getNombre());//Asignar String
+        etiquetaP6t.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
+        etiquetaP6t.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaP6.add(etiquetaP6t);
+        imagen6 = new JLabel();
+        imagen6.setBounds(10,50,180,190);
+        imagen1_6=(Main.productos.get(Main.indices.get(5)).getImagen());//Imagen Obtenida de la lista aleatoria
+        imagen6.setIcon(new ImageIcon(imagen1_6.getImage().getScaledInstance(180, 190,Image.SCALE_AREA_AVERAGING)));//Setea la imagen del producto1 de la lista aleatoria  
+        etiquetaP6.add(imagen6);
         etiquetaF.add(etiquetaP6);
         
         etiquetaPa1 = new JLabel();//Crear etiqueta con string
@@ -236,6 +338,16 @@ public class Ventana extends JFrame {
         etiquetaPa1.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
         etiquetaPa1.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
         etiquetaPa1.setVisible(false);
+        //etiqueta texto
+        etiquetaP1t2 = new JLabel();
+        etiquetaP1t2.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
+        etiquetaP1t2.setBackground(Color.decode("#f1d072"));// Color de la etiqueta 
+        etiquetaP1t2.setBounds(10, 10, 180,30);
+        etiquetaP1t2.setForeground(Color.WHITE);//Asignar color al texto
+        etiquetaP1t2.setText(Main.productos.get(Main.indices.get(0)).getNombre());//Asignar String
+        etiquetaP1t2.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
+        etiquetaP1t2.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaPa1.add(etiquetaP1t2);
         etiquetaF.add(etiquetaPa1);
         
         etiquetaPa2 = new JLabel();//Crear etiqueta con string
@@ -247,6 +359,17 @@ public class Ventana extends JFrame {
         etiquetaPa2.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
         etiquetaPa2.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
         etiquetaPa2.setVisible(false);
+        //etiqueta texto
+        etiquetaP2t2 = new JLabel();
+        etiquetaP2t2.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
+        etiquetaP2t2.setBackground(Color.decode("#f1d072"));// Color de la etiqueta 
+        etiquetaP2t2.setBounds(10, 10, 180,30);
+        etiquetaP2t2.setForeground(Color.WHITE);//Asignar color al texto
+        etiquetaP2t2.setText(Main.productos.get(Main.indices.get(1)).getNombre());//Asignar String
+        etiquetaP2t2.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
+        etiquetaP2t2.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaPa2.add(etiquetaP2t2);
+        
         etiquetaF.add(etiquetaPa2);
         
         etiquetaPa3 = new JLabel();//Crear etiqueta con string
@@ -258,6 +381,16 @@ public class Ventana extends JFrame {
         etiquetaPa3.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
         etiquetaPa3.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
         etiquetaPa3.setVisible(false);
+        //Texto
+        etiquetaP3t2 = new JLabel();
+        etiquetaP3t2.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
+        etiquetaP3t2.setBackground(Color.decode("#f1d072"));// Color de la etiqueta 
+        etiquetaP3t2.setBounds(10, 10, 180,30);
+        etiquetaP3t2.setForeground(Color.WHITE);//Asignar color al texto
+        etiquetaP3t2.setText(Main.productos.get(Main.indices.get(2)).getNombre());//Asignar String
+        etiquetaP3t2.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
+        etiquetaP3t2.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaPa3.add(etiquetaP3t2);
         etiquetaF.add(etiquetaPa3);
         
         etiquetaPa4 = new JLabel();//Crear etiqueta con string
@@ -269,6 +402,15 @@ public class Ventana extends JFrame {
         etiquetaPa4.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
         etiquetaPa4.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
         etiquetaPa4.setVisible(false);
+        etiquetaP4t2 = new JLabel();
+        etiquetaP4t2.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
+        etiquetaP4t2.setBackground(Color.decode("#f1d072"));// Color de la etiqueta 
+        etiquetaP4t2.setBounds(10, 10, 180,30);
+        etiquetaP4t2.setForeground(Color.WHITE);//Asignar color al texto
+        etiquetaP4t2.setText(Main.productos.get(Main.indices.get(3)).getNombre());//Asignar String
+        etiquetaP4t2.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
+        etiquetaP4t2.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaPa4.add(etiquetaP4t2);
         etiquetaF.add(etiquetaPa4);
         
         etiquetaPa5 = new JLabel();//Crear etiqueta con string
@@ -280,6 +422,15 @@ public class Ventana extends JFrame {
         etiquetaPa5.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
         etiquetaPa5.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
         etiquetaPa5.setVisible(false);
+        etiquetaP5t2 = new JLabel();
+        etiquetaP5t2.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
+        etiquetaP5t2.setBackground(Color.decode("#f1d072"));// Color de la etiqueta 
+        etiquetaP5t2.setBounds(10, 10, 180,30);
+        etiquetaP5t2.setForeground(Color.WHITE);//Asignar color al texto
+        etiquetaP5t2.setText(Main.productos.get(Main.indices.get(4)).getNombre());//Asignar String
+        etiquetaP5t2.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
+        etiquetaP5t2.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaPa5.add(etiquetaP5t2);
         etiquetaF.add(etiquetaPa5);
         
         etiquetaPa6 = new JLabel();//Crear etiqueta con string
@@ -291,12 +442,21 @@ public class Ventana extends JFrame {
         etiquetaPa6.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
         etiquetaPa6.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
         etiquetaPa5.setVisible(false);
+        etiquetaP6t2 = new JLabel();
+        etiquetaP6t2.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
+        etiquetaP6t2.setBackground(Color.decode("#f1d072"));// Color de la etiqueta 
+        etiquetaP6t2.setBounds(10, 10, 180,30);
+        etiquetaP6t2.setForeground(Color.WHITE);//Asignar color al texto
+        etiquetaP6t2.setText(Main.productos.get(Main.indices.get(5)).getNombre());//Asignar String
+        etiquetaP6t2.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
+        etiquetaP6t2.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaPa6.add(etiquetaP6t2);
         etiquetaF.add(etiquetaPa6);
           
         
        
       }
-      //Oyeten de raton con etiquetas de ptoductos
+      //Oyeten de raton con etiquetas de productos
       private void oyenteprincipal(JLabel etiqueta ,JLabel etiqueta1){//Etiqueta Principal-Etiqueta Secundaria
            MouseListener oyenteraton1 = new MouseListener(){
                @Override

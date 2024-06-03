@@ -4,6 +4,7 @@
  */
 package com.mycompany.usuario;
 import java.util.Scanner;
+import javax.swing.ImageIcon;
 /**
  *
  * @author ospin
@@ -15,6 +16,7 @@ public abstract class Producto {
     protected String categoria;
     protected int puntos;
     protected String descripcion;
+    protected ImageIcon imagen;
     
 
     
@@ -59,12 +61,24 @@ public abstract class Producto {
         this.puntos = puntos;
     }
 
+    public void setImagen(ImageIcon imagen) {
+        this.imagen = imagen;
+    }
+
+    public ImageIcon getImagen() {
+        return imagen;
+    }
+    
+    
+
     public Producto(float precio, String nombre, String categoria, int puntos, String descripcion) {
         this.precio = precio;
         this.nombre = nombre;
         this.categoria = categoria;
         this.puntos = puntos;
         this.descripcion = descripcion;
+        this.imagen = new ImageIcon("ImagenDefaultP.jpg");
+        
         
     }
 
@@ -91,28 +105,29 @@ public abstract class Producto {
             if (Ropa.getDescuento()!=0){
                 pr = pr*(1-((float)Ropa.getDescuento()/100));
             }
-            productico = new Ropa(pr,no,ca,pu,de);
+            productico = new Ropa(pr,no,pu,de);
             
         }else if(ca=="jueguetes"){
             if (Juguetes.getDescuento()!=0){
                 pr = pr*(1-((float)Juguetes.getDescuento()/100));
             }
-            productico = new Juguetes(pr,no,ca,pu,de);
+            productico = new Juguetes(pr,no,pu,de);
         }else if(ca=="limpieza"){
             if (Limpieza.getDescuento()!=0){
                 pr = pr*(1-((float)Limpieza.getDescuento()/100));
             }
-            productico = new Limpieza(pr,no,ca,pu,de);
+            productico = new Limpieza(pr,no,pu,de);
         }else{
             if (Alimentos.getDescuento()!=0){
                 pr = pr*(1-((float)Alimentos.getDescuento()/100));
             }
-            productico = new Alimentos(pr,no,ca,pu,de);
+            productico = new Alimentos(pr,no,pu,de);
         }
         
         return productico;
         
     }
+    
     
     
 }

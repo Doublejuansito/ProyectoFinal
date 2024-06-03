@@ -10,8 +10,8 @@ package com.mycompany.usuario;
  */
 public class Saludybelleza extends Bono{
     
-    public Saludybelleza(String nombre, int puntos, String categoria, String descripcion) {
-        super(nombre, puntos, categoria, descripcion);
+    public Saludybelleza(String nombre, int puntos, String descripcion) {
+        super(nombre, puntos,"Salud y Belleza", descripcion);
     }
     
 }

@@ -114,7 +114,7 @@ public class VentanaIngresoUsuario extends JFrame {
         etiquetaA.setForeground(Color.black);//Asignar color al texto
         etiquetaA.setText("Acceder");//Asignar String
         etiquetaA.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
-        etiquetaA.setFont(new Font ("chiller",Font.ROMAN_BASELINE,35));//Cambiar fuente
+        etiquetaA.setFont(new Font ("chiller",Font.ROMAN_BASELINE,40));//Cambiar fuente
         etiquetaF.add(etiquetaA);
         //Etiqueta De usuario
         etiquetaU = new JLabel();//Crear etiqueta con string

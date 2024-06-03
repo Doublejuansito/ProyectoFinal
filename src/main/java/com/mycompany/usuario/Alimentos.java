@@ -10,8 +10,8 @@ package com.mycompany.usuario;
  */
 public class Alimentos extends Producto{
     
-    public Alimentos(float precio, String nombre, String categoria, int puntos, String descripcion) {
-        super(precio, nombre, categoria, puntos, descripcion);
+    public Alimentos(float precio, String nombre, int puntos, String descripcion) {
+        super(precio, nombre,"Alimentos", puntos, descripcion);
     }
     private static int descuento = 0;
     
