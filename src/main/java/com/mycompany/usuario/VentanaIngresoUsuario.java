@@ -179,7 +179,7 @@ public class VentanaIngresoUsuario extends JFrame {
                         //Ingresa a la ventana principal
                         Ventana ventana = new Ventana();
                         ventana.setVisible(true);
-                        
+                        Main.menu();
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "Advertencia", JOptionPane.WARNING_MESSAGE);

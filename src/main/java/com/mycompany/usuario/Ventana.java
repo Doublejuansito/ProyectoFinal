@@ -80,6 +80,11 @@ public class Ventana extends JFrame {
      private JButton botonP5;
      private JButton botonP6;
      private JTextArea Descripcion1;
+     private JTextArea Descripcion2;
+     private JTextArea Descripcion3;
+     private JTextArea Descripcion4;
+     private JTextArea Descripcion5;
+     private JTextArea Descripcion6;
      private JTextArea PP1;
      private JTextArea PP2;
      private JTextArea PP3;
@@ -632,42 +637,175 @@ public class Ventana extends JFrame {
         
           
       }
+      private void descuento(int indice,JTextArea PP1){
+        Producto p1 =Main.productos.get(Main.indices.get(indice));
+        PP1.setText("Puntos : "+p1.getPuntos()+"\n");
+        switch(p1.getCategoria()){
+            case "Juguetes":
+                if(Juguetes.getDescuento()!=0){
+                    PP1.append("Descuento : "+Juguetes.getDescuento()+"%");
+                    PP1.append("\nAntes : $"+p1.getPrecio());
+                    PP1.append("\nAhora : $"+(p1.getPrecio()*(1-((float)Juguetes.getDescuento()/100))));
+                    Main.productos.get(Main.indices.get(indice)).setPrecio(p1.getPrecio()*(1-((float)Juguetes.getDescuento()/100)));
+                    
+            }
+                else{
+                    PP1.append("\nPrecio : $"+p1.getPrecio());
+                    
+                }
+                break;
+            case "Ropa":
+                if(Ropa.getDescuento()!=0){
+                    PP1.append("Descuento : "+Ropa.getDescuento()+"%");
+                    PP1.append("\nAntes : $"+p1.getPrecio());
+                    PP1.append("\nAhora : $"+(p1.getPrecio()*(1-((float)Ropa.getDescuento()/100))));
+                    Main.productos.get(Main.indices.get(indice)).setPrecio(p1.getPrecio()*(1-((float)Ropa.getDescuento()/100)));
+                    
+                    
+                
+            }
+                else{
+                    PP1.append("\nPrecio : $"+p1.getPrecio());
+                    
+                }
+                break;
+            case "Limpieza":
+                if(Limpieza.getDescuento()!=0){
+                    PP1.append("Descuento : "+Limpieza.getDescuento()+"%");
+                    PP1.append("\nAntes : $"+p1.getPrecio());
+                    PP1.append("\nAhora : $"+(p1.getPrecio()*(1-((float)Limpieza.getDescuento()/100))));
+                    Main.productos.get(Main.indices.get(indice)).setPrecio(p1.getPrecio()*(1-((float)Limpieza.getDescuento()/100)));
+                    
+
+            }
+                else{
+                    PP1.append("\nPrecio : $"+p1.getPrecio());
+                    
+                }
+                break;
+            case "Alimentos":
+                if(Alimentos.getDescuento()!=0){
+                    PP1.append("Descuento : "+Alimentos.getDescuento()+"%");
+                    PP1.append("\nAntes : $"+p1.getPrecio());
+                    PP1.append("\nAhora : $"+(p1.getPrecio()*(1-((float)Alimentos.getDescuento()/100))));
+                    Main.productos.get(Main.indices.get(indice)).setPrecio(p1.getPrecio()*(1-((float)Alimentos.getDescuento()/100)));
+            }
+                else{
+                     PP1.append("\nPrecio : $"+p1.getPrecio());
+                    
+                }
+                break;
+        }
+      }
       private void areadetextodescripcion(){
+        //1era
         Descripcion1 = new JTextArea();
-        
         Descripcion1.setBounds(10, 50,180,70);
-        
         Descripcion1.setBackground(Color.WHITE);
         Descripcion1.setText(Main.productos.get(Main.indices.get(0)).descripcion);//Coloca y borra el anterior texto
         Descripcion1.setLineWrap(true); // Habilitar ajuste de línea
         Descripcion1.setWrapStyleWord(true); // Ajustar líneas por palabras
         Descripcion1.setEditable(false);//Hacer que no sea editable
         PP1 = new JTextArea();
-        PP1.setBounds(10,130,180,60);
+        PP1.setBounds(10,130,180,65);
         PP1.setBackground(Color.WHITE);
         PP1.setEditable(false);
-        Producto aleatorio;
-                
-        aleatorio = Main.productos.get(Main.indices.get(0));
-        switch(aleatorio.getCategoria()){
-            case "Juguetes":
-                break;
-            case "Ropa":
-                break;
-            case "Limpieza":
-                break;
-            case "Alimentos":
-                break;
-        }
+        descuento(0,PP1);
         accionescajadetexto(Descripcion1,etiquetaP1 ,etiquetaPa1);   
         accionescajadetexto(PP1,etiquetaP1 ,etiquetaPa1);   
         etiquetaPa1.add(Descripcion1);
         etiquetaPa1.add(PP1);
+        //2
+        Descripcion2 = new JTextArea();
+        Descripcion2.setBounds(10, 50,180,70);
+        Descripcion2.setBackground(Color.WHITE);
+        Descripcion2.setText(Main.productos.get(Main.indices.get(0)).descripcion);//Coloca y borra el anterior texto
+        Descripcion2.setLineWrap(true); // Habilitar ajuste de línea
+        Descripcion2.setWrapStyleWord(true); // Ajustar líneas por palabras
+        Descripcion2.setEditable(false);//Hacer que no sea editable
+        PP2 = new JTextArea();
+        PP2.setBounds(10,130,180,65);
+        PP2.setBackground(Color.WHITE);
+        PP2.setEditable(false);
+        descuento(1,PP2);
+        accionescajadetexto(Descripcion2,etiquetaP2 ,etiquetaPa2);   
+        accionescajadetexto(PP2,etiquetaP2 ,etiquetaPa2);   
+        etiquetaPa2.add(Descripcion2);
+        etiquetaPa2.add(PP2);
+        //3
+        Descripcion3 = new JTextArea();
+        Descripcion3.setBounds(10, 50,180,70);
+        Descripcion3.setBackground(Color.WHITE);
+        Descripcion3.setText(Main.productos.get(Main.indices.get(0)).descripcion);//Coloca y borra el anterior texto
+        Descripcion3.setLineWrap(true); // Habilitar ajuste de línea
+        Descripcion3.setWrapStyleWord(true); // Ajustar líneas por palabras
+        Descripcion3.setEditable(false);//Hacer que no sea editable
+        PP3 = new JTextArea();
+        PP3.setBounds(10,130,180,65);
+        PP3.setBackground(Color.WHITE);
+        PP3.setEditable(false);
+        descuento(2,PP3);
+        accionescajadetexto(Descripcion3,etiquetaP3 ,etiquetaPa3);   
+        accionescajadetexto(PP3,etiquetaP3 ,etiquetaPa3);   
+        etiquetaPa3.add(Descripcion3);
+        etiquetaPa3.add(PP3);
+        //4
+        Descripcion4 = new JTextArea();
+        Descripcion4.setBounds(10, 50,180,70);
+        Descripcion4.setBackground(Color.WHITE);
+        Descripcion4.setText(Main.productos.get(Main.indices.get(0)).descripcion);//Coloca y borra el anterior texto
+        Descripcion4.setLineWrap(true); // Habilitar ajuste de línea
+        Descripcion4.setWrapStyleWord(true); // Ajustar líneas por palabras
+        Descripcion4.setEditable(false);//Hacer que no sea editable
+        PP4 = new JTextArea();
+        PP4.setBounds(10,130,180,65);
+        PP4.setBackground(Color.WHITE);
+        PP4.setEditable(false);
+        descuento(3,PP4);
+        accionescajadetexto(Descripcion4,etiquetaP4 ,etiquetaPa4);   
+        accionescajadetexto(PP4,etiquetaP4 ,etiquetaPa4);   
+        etiquetaPa4.add(Descripcion4);
+        etiquetaPa4.add(PP4);
+        //5
+        Descripcion5 = new JTextArea();
+        Descripcion5.setBounds(10, 50,180,70);
+        Descripcion5.setBackground(Color.WHITE);
+        Descripcion5.setText(Main.productos.get(Main.indices.get(0)).descripcion);//Coloca y borra el anterior texto
+        Descripcion5.setLineWrap(true); // Habilitar ajuste de línea
+        Descripcion5.setWrapStyleWord(true); // Ajustar líneas por palabras
+        Descripcion5.setEditable(false);//Hacer que no sea editable
+        PP5 = new JTextArea();
+        PP5.setBounds(10,130,180,65);
+        PP5.setBackground(Color.WHITE);
+        PP5.setEditable(false);
+        descuento(4,PP5);
+        accionescajadetexto(Descripcion5,etiquetaP5 ,etiquetaPa5);   
+        accionescajadetexto(PP5,etiquetaP5 ,etiquetaPa5);   
+        etiquetaPa5.add(Descripcion5);
+        etiquetaPa5.add(PP5);
+         //6
+        Descripcion6 = new JTextArea();
+        Descripcion6.setBounds(10, 50,180,70);
+        Descripcion6.setBackground(Color.WHITE);
+        Descripcion6.setText(Main.productos.get(Main.indices.get(0)).descripcion);//Coloca y borra el anterior texto
+        Descripcion6.setLineWrap(true); // Habilitar ajuste de línea
+        Descripcion6.setWrapStyleWord(true); // Ajustar líneas por palabras
+        Descripcion6.setEditable(false);//Hacer que no sea editable
+        PP6 = new JTextArea();
+        PP6.setBounds(10,130,180,65);
+        PP6.setBackground(Color.WHITE);
+        PP6.setEditable(false);
+        descuento(5,PP6);
+        accionescajadetexto(Descripcion6,etiquetaP6 ,etiquetaPa6);   
+        accionescajadetexto(PP6,etiquetaP6 ,etiquetaPa6);   
+        etiquetaPa6.add(Descripcion6);
+        etiquetaPa6.add(PP6);
         
         
           
           
       }
+      
      
            
 }

@@ -27,10 +27,11 @@ public class Main {
     static Scanner in = new Scanner(System.in);
     
     public static void menu(){
+        while(true){
         System.out.println("Bienvenido querido usuario!");
         System.out.println("");
         System.out.println("");
-        System.out.println("Presione 1 para crear producto || Presione 2 para crear bono");
+        System.out.println("Presione 1 para crear producto || Presione 2 para crear bono || Presione culquier otra para salir");
         System.out.println("");
         int n = in.nextInt();
         System.out.println("");
@@ -39,13 +40,16 @@ public class Main {
             System.out.println("");
             System.out.println("Llena los siguientes datos");
             agregarproducto();
-        }else{
+        }else if(n==2){
             System.out.println("Decidiste crear un bono");
             System.out.println("");
             System.out.println("Llena los siguientes datos");
             crearbono();
         }
-    }
+        else{
+            break;
+        }
+    }}
     
     public static void crearusuario(){
         Usuario nuevousuario = Usuario.crear();
@@ -66,6 +70,7 @@ public class Main {
         String n = in.nextLine();
         System.out.println("Ingrese los puntos para redimir el bono");
         int p = in.nextInt();
+        in.nextLine();
         System.out.println("Ingrese la categoria del bono");
         String c = in.nextLine();
         System.out.println("Ingrese la descripcion");
@@ -182,7 +187,7 @@ public class Main {
         
         }
     public static void main(String[] args) { 
-          menu();
+          
 //        System.out.println(4.0/100);
 //        Juguetes juguete = new Juguetes(10,"","",4,"");
 //        Ropa ropa = new Ropa(10,"","",4,"");
@@ -209,7 +214,7 @@ public class Main {
            
    Ventana ventana = new Ventana();
                         ventana.setVisible(true);        
-           
+           menu();
            
             
             

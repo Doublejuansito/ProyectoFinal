@@ -95,10 +95,13 @@ public abstract class Producto {
         String no = in.nextLine();
         System.out.println("Ingrese el precio del articulo:");
         float pr = in.nextFloat();
+        in.nextLine();
         System.out.println("Ingrese la categoria del articulo:");
         String ca = in.nextLine();
+        
         System.out.println("Ingrese los puntos del articulo:");
         int pu = in.nextInt();
+        in.nextLine();
         System.out.println("Ingrese la descripcion del articulo:");
         String de = in.nextLine();
         if(ca=="ropa"){
