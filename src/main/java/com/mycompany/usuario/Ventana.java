@@ -646,7 +646,19 @@ public class Ventana extends JFrame {
         PP1.setBounds(10,130,180,60);
         PP1.setBackground(Color.WHITE);
         PP1.setEditable(false);
-        //if ((Main.productos.get(Main.indices.get(0)).get)
+        Producto aleatorio;
+                
+        aleatorio = Main.productos.get(Main.indices.get(0));
+        switch(aleatorio.getCategoria()){
+            case "Juguetes":
+                break;
+            case "Ropa":
+                break;
+            case "Limpieza":
+                break;
+            case "Alimentos":
+                break;
+        }
         accionescajadetexto(Descripcion1,etiquetaP1 ,etiquetaPa1);   
         accionescajadetexto(PP1,etiquetaP1 ,etiquetaPa1);   
         etiquetaPa1.add(Descripcion1);

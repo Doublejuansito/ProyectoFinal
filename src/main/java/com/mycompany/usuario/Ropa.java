@@ -22,4 +22,7 @@ public class Ropa extends Producto{
     public static int getDescuento() {
         return descuento;
     }
+    public void preciodescontado(){
+        System.out.println(precio*(1-(float)descuento));
+    }
 }

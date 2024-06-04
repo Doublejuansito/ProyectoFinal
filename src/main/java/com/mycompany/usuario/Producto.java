@@ -95,32 +95,27 @@ public abstract class Producto {
         String no = in.nextLine();
         System.out.println("Ingrese el precio del articulo:");
         float pr = in.nextFloat();
+        in.nextLine();
         System.out.println("Ingrese la categoria del articulo:");
         String ca = in.nextLine();
+        
         System.out.println("Ingrese los puntos del articulo:");
         int pu = in.nextInt();
+        in.nextLine();
         System.out.println("Ingrese la descripcion del articulo:");
         String de = in.nextLine();
         if(ca=="ropa"){
-            if (Ropa.getDescuento()!=0){
-                pr = pr*(1-((float)Ropa.getDescuento()/100));
-            }
+            
             productico = new Ropa(pr,no,pu,de);
             
-        }else if(ca=="jueguetes"){
-            if (Juguetes.getDescuento()!=0){
-                pr = pr*(1-((float)Juguetes.getDescuento()/100));
-            }
+        }else if(ca=="juguetes"){
+            
             productico = new Juguetes(pr,no,pu,de);
         }else if(ca=="limpieza"){
-            if (Limpieza.getDescuento()!=0){
-                pr = pr*(1-((float)Limpieza.getDescuento()/100));
-            }
+            
             productico = new Limpieza(pr,no,pu,de);
         }else{
-            if (Alimentos.getDescuento()!=0){
-                pr = pr*(1-((float)Alimentos.getDescuento()/100));
-            }
+            
             productico = new Alimentos(pr,no,pu,de);
         }
         

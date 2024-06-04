@@ -165,10 +165,11 @@ public class Usuario {
             plata += productazo.getPrecio();
             puntacos += productazo.getPuntos();
         }
+        
         dinero -= plata;
         puntos += puntacos;
         carrito.clear();
-    }
+    }   
     
     
     
