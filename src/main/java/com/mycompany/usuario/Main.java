@@ -81,12 +81,12 @@ public class Main {
     }
     public static void productosPrincipales(){
        
-        Producto p1 = new Ropa(153.900f,"Gaban Negro",25,"Disfruta de la elegancia y sofisticación del gabán negro 8-139. Trabajado manualmente para articular un perfecto corte con cuello y botones, \n Diponible en tallas : S-M-L");
-        Producto p2 = new Ropa(70.950f,"Camisa Blanca",10," Camisa Formal Solo Fondo Dobby Blanca Malla \n Diponible en tallas : XS-S-M-L");
-        Producto p3 = new Alimentos(19.360f,"Café NESCAFE Tradición Instantáneo (170 gr)",2,"Café soluble Instantáneo de fácil preparación NESCAFÉ TRADICIÓN Disfruta tu NESCAFÉ de siempre que va perfecto en todos los momentos del día, delicioso sabor y aroma\n 170 gr");
-        Producto p4 = new Alimentos(11.340f,"Modificador de Leche MILO 250 gr",1,"Solidos lacteos (leche entera en polvo) o/y suero de leche en polvo \n  250 gr");
-        Producto p5 = new Juguetes(40.771f,"Cactus Bailarin Imita La Voz",4," Divertido juguete de cactus eléctrico, que se puede retorcer para cantar y bailar, trayendo risas a familiares y amigos \n 120 canciones");
-        Producto p6 = new Limpieza(12.090f,"Limpia Vidrios 500 Ml Ecocleaner",1,"Limpieza y transparencia al instante. Elimina residuos de polvo, grasa y demás suciedades.\n 500 Ml");
+        Producto p1 = new Ropa(153.900f,"Gaban Negro",25,"Trabajado manualmente para articular un perfecto corte con cuello y botones, \nDiponible en tallas : S-M-L");
+        Producto p2 = new Ropa(70.950f,"Camisa Blanca",10,"Camisa Formal Solo Fondo Dobby Blanca Malla \nDiponible en tallas : XS-S-M-L");
+        Producto p3 = new Alimentos(19.360f,"Café NESCAFE Tradición Instantáneo (170 gr)",2,"Café soluble Instantáneo de fácil preparación NESCAFÉ TRADICIÓN \n170 gr");
+        Producto p4 = new Alimentos(11.340f,"Modificador de Leche MILO 250 gr",1,"Solidos lacteos (leche entera en polvo) o/y suero de leche en polvo \n250 gr");
+        Producto p5 = new Juguetes(40.771f,"Cactus Bailarin Imita La Voz",4," Divertido juguete de cactus eléctrico, que se puede retorcer para cantar y bailar, trayendo risas a familiares y amigos \n120 canciones");
+        Producto p6 = new Limpieza(12.090f,"Limpia Vidrios 500 Ml Ecocleaner",1,"Limpieza y transparencia al instante. Elimina residuos de polvo, grasa y demás suciedades.\n500 Ml");
         p1.setImagen(new ImageIcon ("gaban.jpg"));
         p2.setImagen(new ImageIcon ("Camisa.jpeg"));
         p3.setImagen(new ImageIcon ("Nescafe.jpeg"));
@@ -140,9 +140,9 @@ public class Main {
            indices = generarindicesaletoriosproductos();
            
            //ingresarUsuario();
-           Ventana ventana = new Ventana();
-           ventana.setVisible(true);
            
+   Ventana ventana = new Ventana();
+                        ventana.setVisible(true);        
            
            
             

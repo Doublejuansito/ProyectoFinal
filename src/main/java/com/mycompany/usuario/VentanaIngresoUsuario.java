@@ -176,6 +176,7 @@ public class VentanaIngresoUsuario extends JFrame {
                     usuarioe=false;
                     if(Main.usuarios.get(indice).getContraseña()==(Integer.parseInt(cajaC.getText()))){
                         dispose();
+                        //Ingresa a la ventana principal
                         Ventana ventana = new Ventana();
                         ventana.setVisible(true);
                         

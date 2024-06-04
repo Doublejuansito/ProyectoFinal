@@ -20,7 +20,8 @@ public class Juguetes extends Producto{
         descuento = desc;
     }
 
-    public static int getDescuento() {
+   
+    public static int getDescuento(){
         return descuento;
     }
 

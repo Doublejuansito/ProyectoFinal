@@ -79,6 +79,14 @@ public class Ventana extends JFrame {
      private JButton botonP4;
      private JButton botonP5;
      private JButton botonP6;
+     private JTextArea Descripcion1;
+     private JTextArea PP1;
+     private JTextArea PP2;
+     private JTextArea PP3;
+     private JTextArea PP4;
+     private JTextArea PP5;
+     private JTextArea PP6;
+     
      
     public Ventana (){
         ImageIcon icon = new ImageIcon("CarritoPrincipal.png");//Imagen de icono
@@ -98,6 +106,7 @@ public class Ventana extends JFrame {
         etiquetasProductos();
         animacionetiquetas();
         botonesComprarproductos();
+        areadetextodescripcion();
         //colocarBotonesAccion();
         //colocarcajadetexto();
         //colocarAreaTexto();
@@ -333,10 +342,6 @@ public class Ventana extends JFrame {
         etiquetaPa1.setBounds(100, 50, 200, 250);// posicion en el panel y tamaño de la etiqueta
         etiquetaPa1.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaPa1.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
-        etiquetaPa1.setForeground(Color.WHITE);//Asignar color al texto
-        etiquetaPa1.setText("Dinero : atras");//Asignar String
-        etiquetaPa1.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
-        etiquetaPa1.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
         etiquetaPa1.setVisible(false);
         //etiqueta texto
         etiquetaP1t2 = new JLabel();
@@ -354,10 +359,6 @@ public class Ventana extends JFrame {
         etiquetaPa2.setBounds(400, 50, 200, 250);// posicion en el panel y tamaño de la etiqueta
         etiquetaPa2.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaPa2.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
-        etiquetaPa2.setForeground(Color.WHITE);//Asignar color al texto
-        etiquetaPa2.setText("Dinero : atras");//Asignar String
-        etiquetaPa2.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
-        etiquetaPa2.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
         etiquetaPa2.setVisible(false);
         //etiqueta texto
         etiquetaP2t2 = new JLabel();
@@ -376,10 +377,6 @@ public class Ventana extends JFrame {
         etiquetaPa3.setBounds(700, 50, 200, 250);// posicion en el panel y tamaño de la etiqueta
         etiquetaPa3.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaPa3.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
-        etiquetaPa3.setForeground(Color.WHITE);//Asignar color al texto
-        etiquetaPa3.setText("Dinero : atras");//Asignar String
-        etiquetaPa3.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
-        etiquetaPa3.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
         etiquetaPa3.setVisible(false);
         //Texto
         etiquetaP3t2 = new JLabel();
@@ -397,10 +394,6 @@ public class Ventana extends JFrame {
         etiquetaPa4.setBounds(100, 335, 200, 250);// posicion en el panel y tamaño de la etiqueta
         etiquetaPa4.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaPa4.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
-        etiquetaPa4.setForeground(Color.WHITE);//Asignar color al texto
-        etiquetaPa4.setText("Dinero : atras");//Asignar String
-        etiquetaPa4.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
-        etiquetaPa4.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
         etiquetaPa4.setVisible(false);
         etiquetaP4t2 = new JLabel();
         etiquetaP4t2.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
@@ -416,11 +409,7 @@ public class Ventana extends JFrame {
         etiquetaPa5 = new JLabel();//Crear etiqueta con string
         etiquetaPa5.setBounds(400, 335, 200, 250);// posicion en el panel y tamaño de la etiqueta
         etiquetaPa5.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
-        etiquetaPa5.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
-        etiquetaPa5.setForeground(Color.WHITE);//Asignar color al texto
-        etiquetaPa5.setText("Dinero : atras");//Asignar String
-        etiquetaPa5.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
-        etiquetaPa5.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
+        etiquetaPa5.setBackground(Color.decode("#175CA7"));// Color de la etiqueta
         etiquetaPa5.setVisible(false);
         etiquetaP5t2 = new JLabel();
         etiquetaP5t2.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
@@ -437,11 +426,7 @@ public class Ventana extends JFrame {
         etiquetaPa6.setBounds(700, 335, 200, 250);// posicion en el panel y tamaño de la etiqueta
         etiquetaPa6.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaPa6.setBackground(Color.decode("#175CA7"));// Color de la etiqueta 
-        etiquetaPa6.setForeground(Color.WHITE);//Asignar color al texto
-        etiquetaPa6.setText("Dinero : atras");//Asignar String
-        etiquetaPa6.setFont(new Font ("chiller",Font.ROMAN_BASELINE,20));//Cambiar fuente
-        etiquetaPa6.setHorizontalAlignment(JLabel.LEFT);//Añadir el texto a una posciicoon dentro de la etiqueta
-        etiquetaPa5.setVisible(false);
+        etiquetaPa6.setVisible(false);
         etiquetaP6t2 = new JLabel();
         etiquetaP6t2.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaP6t2.setBackground(Color.decode("#f1d072"));// Color de la etiqueta 
@@ -516,7 +501,7 @@ public class Ventana extends JFrame {
            etiqueta.addMouseListener(oyenteraton1);
            
        }
-      //Agregar al carrito con boton
+      //Agregar al carrito con boton ademas de corregir animacion etiquetas
       private void accionesbotonAgregarc(JButton boton,JLabel etiqueta ,JLabel etiqueta1){
             MouseListener oyenteraton1 = new MouseListener(){
                @Override
@@ -547,6 +532,38 @@ public class Ventana extends JFrame {
            boton.addMouseListener(oyenteraton1);
           
       }
+      //corregir animacion con caja de texto
+      private void accionescajadetexto(JTextArea texto,JLabel etiqueta ,JLabel etiqueta1){
+            MouseListener oyenteraton1 = new MouseListener(){
+               @Override
+               public void mouseClicked(MouseEvent e) { // al dar click y soltar en el mismo lugar pasa lo siguiente
+               }
+               @Override
+               public void mousePressed(MouseEvent e) {//Cuando se da click pasa lo siguiente (solo darel click)
+               }
+               @Override
+               public void mouseReleased(MouseEvent e) {//Presionar el boton y soltar afuera pasa lo siguiente
+               }
+               @Override
+               public void mouseEntered(MouseEvent e) {//Pasar el mouse por encima del boton pasa lo siguiente 
+                   etiqueta.setVisible(false);
+                   etiqueta1.setVisible(true);
+               }
+
+               @Override
+               public void mouseExited(MouseEvent e) {// Salir del boton pasa lo siguiente
+                   etiqueta1.setVisible(false);
+               
+                   etiqueta.setVisible(true);
+               }
+               
+           };
+           texto.addMouseListener(oyenteraton1);
+          
+      }
+      
+      
+      
       private void animacionetiquetas(){
           oyenteprincipal(etiquetaP1 ,etiquetaPa1);
           oyentesecundario(etiquetaPa1 ,etiquetaP1);
@@ -613,6 +630,30 @@ public class Ventana extends JFrame {
         etiquetaPa6.add(botonP6);//Agregar el boton al panel 1
         
         
+          
+      }
+      private void areadetextodescripcion(){
+        Descripcion1 = new JTextArea();
+        
+        Descripcion1.setBounds(10, 50,180,70);
+        
+        Descripcion1.setBackground(Color.WHITE);
+        Descripcion1.setText(Main.productos.get(Main.indices.get(0)).descripcion);//Coloca y borra el anterior texto
+        Descripcion1.setLineWrap(true); // Habilitar ajuste de línea
+        Descripcion1.setWrapStyleWord(true); // Ajustar líneas por palabras
+        Descripcion1.setEditable(false);//Hacer que no sea editable
+        PP1 = new JTextArea();
+        PP1.setBounds(10,130,180,60);
+        PP1.setBackground(Color.WHITE);
+        PP1.setEditable(false);
+        //if ((Main.productos.get(Main.indices.get(0)).get)
+        accionescajadetexto(Descripcion1,etiquetaP1 ,etiquetaPa1);   
+        accionescajadetexto(PP1,etiquetaP1 ,etiquetaPa1);   
+        etiquetaPa1.add(Descripcion1);
+        etiquetaPa1.add(PP1);
+        
+        
+          
           
       }
      
