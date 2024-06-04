@@ -132,9 +132,9 @@ public class Usuario {
         Usuario usuarionuevo = new Usuario(n,id,c,0,co);
         return usuarionuevo;
     }
-    public void recargardinero(){
-        System.out.println("Ingrese cuanto dinero desea recargar");
-        float n = in.nextFloat();
+    public void recargardinero(int  n){
+        
+        
         dinero += n;
     }
 

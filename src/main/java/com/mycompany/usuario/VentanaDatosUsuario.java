@@ -59,7 +59,7 @@ public class VentanaDatosUsuario extends JFrame {
         iniciarPanel();
         iniciaretiquetas();
         botones();
-        //accionboton();
+        accionboton1();
        
         
     }
@@ -234,5 +234,15 @@ public class VentanaDatosUsuario extends JFrame {
 //        boton1.addActionListener(oyenteDeAccion);// se agregael oyente de accion para que pase cada ves que oprima el boton
 //           
 //       }
-         
+         private void accionboton1(){
+         ActionListener oyenteDeAccion = new ActionListener() { // se crea el evento oyente de accion (utilizado para clicks y cosas simples)
+             
+            @Override
+            public void actionPerformed(ActionEvent e) {//a 
+                Main.recarga();
+            }
+        }; //Oyente de accion
+        boton1.addActionListener(oyenteDeAccion);// se agregael oyente de accion para que pase cada ves que oprima el boton
+           
+       }
      }

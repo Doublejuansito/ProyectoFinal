@@ -12,12 +12,15 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 /**
  *
  * @author ospin
  */
 public class Main {
+    
     public static Random rand = new Random();
     public static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
     public static ArrayList<Bono> bonosusados = new ArrayList<Bono>();
@@ -142,6 +145,28 @@ public class Main {
         ventana2.setVisible(true);
         
     }
+    public static void agregarUsuario(){ //Ingresar a la ventana de ingresar usuario
+        VentanaAgregarUsuario ventana3= new VentanaAgregarUsuario();
+        ventana3.setVisible(true);
+        
+    }
+    public static void mostrarbono(){ //Ingresar a la ventana de ingresar usuario
+        VentanaBono ventana4= new VentanaBono();
+        ventana4.setVisible(true);
+        
+        
+    }
+   
+    public static void mostrarventana(){
+        
+        Ventana ventana5 = new Ventana();
+        ventana5.setVisible(true);
+    }
+    public static void recarga(){
+        VentanaRecargar ventan = new VentanaRecargar();
+        ventan.setVisible(true);
+    }
+    
     public static void usuariosPredeterminados(){//Establecer ususarios predetterminados
         Usuario usuario1 = new Usuario("Juan",10,11,2,"sh");
         Usuario usuario2 = new Usuario("sara",11,12,2,"sdh");
@@ -171,7 +196,27 @@ public class Main {
         productos.add(p6);
         
     }
-
+    public static void iniciarbonos(){
+        Bono b1 = new Entretenimiento("Tarjeta regalo netflix",150,"1 mes para disfrutar tus peliculas y series favoritas");
+        Bono b2 = new Entretenimiento("2 boletas para cine colombia",100,"Disfruta con un acompañante la pelicula que desees");
+        Bono b3 = new Saludybelleza("2*1 en marca nivea",200,"Paga un articulo de marca nivea, y la segunda unidad es completamente gratis");
+        Bono b4 = new Saludybelleza("1 corte gratis en lords barberia",180,"Disfruta un cambio de look en una de las mejores barberias del pais");
+        Bono b5 = new Articulos("Sanduchera",250,"Disfruta de una hermosa sanduchera para preparar los mejores emparedados");
+        Bono b6 = new Articulos("llavero",80,"Hermoso llavero para acomodar las llaves");
+        b1.setImagen(new ImageIcon ("netflix.png"));
+        b2.setImagen(new ImageIcon ("cineco.png"));
+        b3.setImagen(new ImageIcon ("nivea.png"));
+        b4.setImagen(new ImageIcon ("lords.png"));
+        b5.setImagen(new ImageIcon ("sanduchera.jpeg"));
+        b6.setImagen(new ImageIcon ("llavero.jpg"));
+        bonos.add(b1);
+        bonos.add(b2);
+        bonos.add(b3);
+        bonos.add(b4);
+        bonos.add(b5);
+        bonos.add(b6);
+        
+    }
     public static ArrayList<Integer> generarindicesaletoriosproductos() {
         ArrayList<Integer> enteros = new ArrayList<Integer>();
 
@@ -187,6 +232,8 @@ public class Main {
         
         }
     public static void main(String[] args) { 
+          
+          
           
 //        System.out.println(4.0/100);
 //        Juguetes juguete = new Juguetes(10,"","",4,"");
@@ -205,15 +252,18 @@ public class Main {
 
 
 //Aca empieza el codigo
+
            usuariosPredeterminados();
            productosPrincipales();
+           iniciarbonos();
            promocion();
            indices = generarindicesaletoriosproductos();
            
-           //ingresarUsuario();
            
-   Ventana ventana = new Ventana();
-                        ventana.setVisible(true);        
+           ingresarUsuario();
+           
+           //Ventana ventana = new Ventana();
+           //ventana.setVisible(true);        
            menu();
            
             

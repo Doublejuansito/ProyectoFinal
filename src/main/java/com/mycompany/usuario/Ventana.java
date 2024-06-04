@@ -94,6 +94,7 @@ public class Ventana extends JFrame {
      
      
     public Ventana (){
+        dispose();
         ImageIcon icon = new ImageIcon("CarritoPrincipal.png");//Imagen de icono
         this.setIconImage(icon.getImage());
         this.setSize(1000,800);//Tamaño
@@ -112,6 +113,7 @@ public class Ventana extends JFrame {
         animacionetiquetas();
         botonesComprarproductos();
         areadetextodescripcion();
+        accionboton2();
         //colocarBotonesAccion();
         //colocarcajadetexto();
         //colocarAreaTexto();
@@ -805,7 +807,21 @@ public class Ventana extends JFrame {
           
           
       }
-      
+      private void accionboton2(){
+         ActionListener oyenteDeAccion = new ActionListener() { // se crea el evento oyente de accion (utilizado para clicks y cosas simples)
+            
+             
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                Main.mostrarbono();
+                
+            }
+        }; //Oyente de accion
+        boton2.addActionListener(oyenteDeAccion);// se agregael oyente de accion para que pase cada ves que oprima el boton
+           
+       }
+     
      
            
 }

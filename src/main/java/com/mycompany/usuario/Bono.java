@@ -6,6 +6,7 @@ package com.mycompany.usuario;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,6 +17,7 @@ public abstract class Bono {
     protected int puntos;
     protected String categoria;
     protected String descripcion;
+    protected ImageIcon imagen;
 
     public String getNombre() {
         return nombre;
@@ -54,6 +56,15 @@ public abstract class Bono {
         this.puntos = puntos;
         this.categoria = categoria;
         this.descripcion = descripcion;
+        this.imagen = new ImageIcon("ImagenDefaultP.jpg");
+    }
+
+    public ImageIcon getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(ImageIcon imagen) {
+        this.imagen = imagen;
     }
     
 

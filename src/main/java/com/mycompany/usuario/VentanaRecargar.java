@@ -1,5 +1,9 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.mycompany.usuario;
+
 import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -28,9 +32,8 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
-
-public class VentanaIngresoUsuario extends JFrame {
-     private JPanel panel;
+public class VentanaRecargar extends JFrame{
+    private JPanel panel;
      private JLabel etiquetaD;
      private JLabel etiquetaF;
      private JLabel etiqueta1;
@@ -59,10 +62,10 @@ public class VentanaIngresoUsuario extends JFrame {
      private JButton botonP6;
      static public int indice=0;
     
-    public VentanaIngresoUsuario(){
+    public VentanaRecargar(){
         ImageIcon icon = new ImageIcon("CarritoPrincipal.png");//Imagen de icono
         this.setIconImage(icon.getImage());
-        this.setSize(350,450);//Tamaño
+        this.setSize(350,350);//Tamaño
         this.setTitle("Ingreso De usuario");//Titulo
         this.setLocationRelativeTo(null);//lo posciona en el centro
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);//Terminar el programa al cerrarse
@@ -77,7 +80,7 @@ public class VentanaIngresoUsuario extends JFrame {
         boton();
         
         accionboton();
-        accionboton2();
+        
        
         
     }
@@ -110,116 +113,61 @@ public class VentanaIngresoUsuario extends JFrame {
      
         //Etiqueta Acceder
         etiquetaA = new JLabel();//Crear etiqueta con string
-        etiquetaA.setBounds(0, 0, 350, 60);// posicion en el panel y tamaño de la etiqueta
+        etiquetaA.setBounds(0, 15, 350, 60);// posicion en el panel y tamaño de la etiqueta
         etiquetaA.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaA.setBackground(Color.decode("#eae39a"));// Color de la etiqueta 
         etiquetaA.setForeground(Color.black);//Asignar color al texto
-        etiquetaA.setText("Acceder");//Asignar String
+        etiquetaA.setText("Recargar");//Asignar String
         etiquetaA.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
         etiquetaA.setFont(new Font ("chiller",Font.ROMAN_BASELINE,40));//Cambiar fuente
         etiquetaF.add(etiquetaA);
         //Etiqueta De usuario
         etiquetaU = new JLabel();//Crear etiqueta con string
-        etiquetaU.setBounds(20, 45, 100, 75);// posicion en el panel y tamaño de la etiqueta
+        etiquetaU.setBounds(20, 65, 100, 75);// posicion en el panel y tamaño de la etiqueta
         etiquetaU.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
         etiquetaU.setBackground(Color.decode("#eae39a"));// Color de la etiqueta 
         etiquetaU.setForeground(Color.black);//Asignar color al texto
-        etiquetaU.setText("Usuario");//Asignar String
+        etiquetaU.setText("Cantidad");//Asignar String
         etiquetaU.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
         etiquetaU.setFont(new Font ("chiller",Font.ROMAN_BASELINE,25));//Cambiar fuente
         etiquetaF.add(etiquetaU);
         
-        //Etiqueta de contraseña
-        etiquetaC = new JLabel();//Crear etiqueta con string
-        etiquetaC.setBounds(20, 120, 100, 75);// posicion en el panel y tamaño de la etiqueta
-        etiquetaC.setOpaque(true);//Dejar que la etiqueta deje de ser transparente
-        etiquetaC.setBackground(Color.decode("#eae39a"));// Color de la etiqueta 
-        etiquetaC.setForeground(Color.black);//Asignar color al texto
-        etiquetaC.setText("Contraseña");//Asignar String
-        etiquetaC.setHorizontalAlignment(JLabel.CENTER);//Añadir el texto a una posciicoon dentro de la etiqueta
-        etiquetaC.setFont(new Font ("chiller",Font.ROMAN_BASELINE,25));//Cambiar fuente
-        etiquetaF.add(etiquetaC);
+        
         
         
         
          }
      private void cajasdetexto(){
         cajaU = new JTextField();
-        cajaU.setBounds(140, 65, 150, 30);
+        cajaU.setBounds(140, 85, 150, 30);
         etiquetaF.add(cajaU);
-        cajaC = new JTextField();
-        cajaC.setBounds(140, 140, 150, 30);
-        etiquetaF.add(cajaC);
-         
+        
      }
      private void boton(){
-        boton1 = new JButton("Ingresar");//Nuevo Boton con texto
+        boton1 = new JButton("Recargar");//Nuevo Boton con texto
         boton1.setForeground(Color.black);//Color del texto
         boton1.setFont(new Font("arial", Font.ROMAN_BASELINE,15));//Fuente
-        boton1.setBounds(95,200,150,40);//dimensiones del boton y posicion
+        boton1.setBounds(95,150,150,40);//dimensiones del boton y posicion
         etiquetaF.add(boton1);//Agregar el boton al panel 
-        boton2 = new JButton("Registrarse");//Nuevo Boton con texto
-        boton2.setForeground(Color.black);//Color del texto
-        boton2.setFont(new Font("arial", Font.ROMAN_BASELINE,15));//Fuente
-        boton2.setBounds(95,270,150,40);//dimensiones del boton y posicion
-        etiquetaF.add(boton2);//Agregar el boton al panel 
+        
      }
      
      private void accionboton(){
          ActionListener oyenteDeAccion = new ActionListener() { // se crea el evento oyente de accion (utilizado para clicks y cosas simples)
-             boolean usuarioe=false;
              
             @Override
             public void actionPerformed(ActionEvent e) {//a 
-                for(Usuario usuarito1 : Main.usuarios){
-                  
-                    if (usuarito1.getNombre().equals(cajaU.getText())){
-                        usuarioe=true;
-                        indice=Main.usuarios.indexOf(usuarito1);
-                        break;
-                    }
-            }
-                if (usuarioe){
-         
-                    usuarioe=false;
-                    if(Main.usuarios.get(indice).getContraseña()==(Integer.parseInt(cajaC.getText()))){
-                        
-                        //Ingresa a la ventana principal
-                        dispose();
-                        Main.mostrarventana();
-                        
-                        
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                        cajaC.setText("");
-                        
-
-                    }
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Usuario y/0 Contraseña Incorrectos", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                    cajaC.setText("");
-                    cajaU.setText("");
-                    
-                }
+               
+                Main.usuarios.get(VentanaIngresoUsuario.indice).recargardinero(Integer.parseInt(cajaU.getText()));
+                cajaU.setText("");
+                
+                dispose();
+                Main.mostrarventana();
+                
+                
             }
         }; //Oyente de accion
         boton1.addActionListener(oyenteDeAccion);// se agregael oyente de accion para que pase cada ves que oprima el boton
            
        }
-        private void accionboton2(){
-         ActionListener oyenteDeAccion = new ActionListener() { // se crea el evento oyente de accion (utilizado para clicks y cosas simples)
-            
-             
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Main.agregarUsuario();
-            }
-        }; //Oyente de accion
-        boton2.addActionListener(oyenteDeAccion);// se agregael oyente de accion para que pase cada ves que oprima el boton
-           
-       }
-         
-     }
-    
+}
