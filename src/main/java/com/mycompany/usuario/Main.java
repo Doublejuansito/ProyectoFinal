@@ -20,11 +20,33 @@ import java.util.Set;
 public class Main {
     public static Random rand = new Random();
     public static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    public static ArrayList<Bono> bonosusados = new ArrayList<Bono>();
     public static ArrayList<Bono> bonos = new ArrayList<Bono>();
     public static ArrayList<Producto> productos = new ArrayList<Producto>();
     public static ArrayList<Integer> indices = new ArrayList<Integer>();
     static Scanner in = new Scanner(System.in);
-   
+    
+    public static void menu(){
+        System.out.println("Bienvenido querido usuario!");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("Presione 1 para crear producto || Presione 2 para crear bono");
+        System.out.println("");
+        int n = in.nextInt();
+        System.out.println("");
+        if(n==1){
+            System.out.println("Decidiste crear un producto");
+            System.out.println("");
+            System.out.println("Llena los siguientes datos");
+            agregarproducto();
+        }else{
+            System.out.println("Decidiste crear un bono");
+            System.out.println("");
+            System.out.println("Llena los siguientes datos");
+            crearbono();
+        }
+    }
+    
     public static void crearusuario(){
         Usuario nuevousuario = Usuario.crear();
         
@@ -36,11 +58,39 @@ public class Main {
     }
     public static void agregarbono(Bono bono, Usuario usuarito){
         usuarito.setPuntos(usuarito.getPuntos()-bono.getPuntos());   
-        bonos.add(bono);
+        bonosusados.add(bono);
+    }
+    public static void crearbono(){
+        Bono bonito;
+        System.out.println("Ingrese el nombre del bono");
+        String n = in.nextLine();
+        System.out.println("Ingrese los puntos para redimir el bono");
+        int p = in.nextInt();
+        System.out.println("Ingrese la categoria del bono");
+        String c = in.nextLine();
+        System.out.println("Ingrese la descripcion");
+        String d = in.nextLine();
+        switch(c){
+            case "entretenimiento":
+                bonito = new Entretenimiento(n,p,d);
+                break;
+            case "saludybelleza":
+                bonito = new Saludybelleza(n,p,d);
+                break;
+            default:
+                bonito = new Articulos(n,p,d);
+                break;
+        }
+        bonos.add(bonito);
     }
     public static void promocion(){
         int num = rand.nextInt(4);
+        int num2;
+        do {
+            num2 = rand.nextInt(4); // Genera otro número aleatorio entre 0 y 99
+        } while (num2 == num);
         int des = 10 + rand.nextInt(30);
+        int des2 = 10 + rand.nextInt(30);
         switch(num){
             case 0:
                 Juguetes.aplicardescuento(des);
@@ -53,6 +103,21 @@ public class Main {
                 break;
             case 3:
                 Limpieza.aplicardescuento(des);
+                break;
+             
+        }
+        switch(num2){
+            case 0:
+                Juguetes.aplicardescuento(des2);
+                break;
+            case 1:
+                Ropa.aplicardescuento(des2);
+                break;
+            case 2:
+                Alimentos.aplicardescuento(des2);
+                break;
+            case 3:
+                Limpieza.aplicardescuento(des2);
                 break;
              
         }
@@ -117,6 +182,7 @@ public class Main {
         
         }
     public static void main(String[] args) { 
+          menu();
 //        System.out.println(4.0/100);
 //        Juguetes juguete = new Juguetes(10,"","",4,"");
 //        Ropa ropa = new Ropa(10,"","",4,"");
